@@ -112,6 +112,16 @@ public class MainActivity extends BaseActivity {
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit();
 
+        if (fragment instanceof SessionsFragment) {
+            binding.toolbar.setTitle(getString(R.string.sessions));
+        } else if (fragment instanceof MapFragment) {
+            binding.toolbar.setTitle(getString(R.string.map));
+        } else if (fragment instanceof InformationFragment) {
+            binding.toolbar.setTitle(getString(R.string.information));
+        } else if (fragment instanceof SettingsFragment) {
+            binding.toolbar.setTitle(getString(R.string.settings));
+        }
+
         // NOTE: When this method is called by user's continuous hitting at the same time,
         // transactions are queued, so necessary to reflect commit instantly before next transaction starts.
         manager.executePendingTransactions();
